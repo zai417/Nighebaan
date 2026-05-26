@@ -1,0 +1,14 @@
+node_modules/
+build/
+.env
+*.env
+backend/.env
+uploads/
+*.log
+*.err.log
+report_extract_tmp/
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
