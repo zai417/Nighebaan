@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
@@ -78,7 +78,7 @@ function NurseDashboard() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-50 text-cyan-600">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -147,16 +147,16 @@ function NurseDashboard() {
                 </button>
                 <button
                   onClick={() => navigate("/nurse-shift")}
-                  className="flex w-full items-center gap-3 rounded-2xl border border-indigo-200 bg-indigo-50 px-5 py-4 text-left text-indigo-700 shadow-sm transition hover:bg-indigo-100 active:scale-[0.98]"
+                  className="flex w-full items-center gap-3 rounded-2xl border border-cyan-200 bg-cyan-50 px-5 py-4 text-left text-cyan-700 shadow-sm transition hover:bg-cyan-100 active:scale-[0.98]"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cyan-100 text-cyan-600">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
                   </div>
                   <div>
                     <p className="text-sm font-semibold">Manage Shifts</p>
-                    <p className="mt-0.5 text-xs text-indigo-400">Add, edit &amp; view patient checkups</p>
+                    <p className="mt-0.5 text-xs text-cyan-400">Add, edit &amp; view patient checkups</p>
                   </div>
                 </button>
                 <button
@@ -214,4 +214,3 @@ function NurseDashboard() {
 }
 
 export default NurseDashboard;
-

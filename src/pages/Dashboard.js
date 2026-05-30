@@ -158,7 +158,7 @@ function Dashboard() {
               <Link to="/sos" className="flex items-center gap-2 rounded-2xl bg-rose-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-700">
                 🆘 SOS Emergency
               </Link>
-              <Link to="/chat-ai" className="flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700">
+              <Link to="/chat-ai" className="flex items-center gap-2 rounded-2xl bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-700">
                 Chat with AI
               </Link>
               <Link to="/book-appointment" className="flex items-center gap-2 rounded-2xl bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-700">
@@ -177,7 +177,7 @@ function Dashboard() {
             {/* Patient info + quick stats */}
             <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
               <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 flex items-center gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-white text-2xl font-bold">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cyan-600 text-white text-2xl font-bold">
                   {currentUser?.name?.charAt(0).toUpperCase() || "P"}
                 </div>
                 <div>

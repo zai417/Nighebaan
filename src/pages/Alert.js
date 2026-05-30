@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { io } from "socket.io-client";
 import Navbar from "../components/Navbar";
 import { createAlert, getAlerts, getPublicUsers } from "../services/api";
@@ -37,7 +37,7 @@ function Alerts() {
     conditions: []
   });
 
-  const sampleAlerts = [
+  const sampleAlerts = useMemo(() => [
     {
       id: 1,
       title: "Low Activity Detected",
@@ -59,7 +59,7 @@ function Alerts() {
       time: "Mon 14:05",
       severity: "low",
     },
-  ];
+  ], []);
 
   useEffect(() => {
     // Get current user info
@@ -115,7 +115,7 @@ function Alerts() {
     return () => {
       socket.disconnect();
     };
-  }, []);
+  }, [sampleAlerts]);
 
   useEffect(() => {
     getPublicUsers("doctor")
@@ -348,7 +348,7 @@ function Alerts() {
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="mb-8 rounded-[2rem] bg-white p-8 shadow-xl ring-1 ring-slate-200">
           <div className="flex flex-col items-center justify-center gap-4 text-center">
-            <span className="rounded-full bg-indigo-100 px-5 py-2 text-sm font-semibold uppercase tracking-[0.35em] text-indigo-600">
+            <span className="rounded-full bg-cyan-100 px-5 py-2 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-600">
               {isMedicalStaff ? "Medical Staff Panel" : "Emergency"}
             </span>
             <h1 className="text-3xl font-semibold text-slate-900">
@@ -361,7 +361,7 @@ function Alerts() {
               }
             </p>
             {currentUser && (
-              <p className="text-sm text-indigo-600 font-medium">
+              <p className="text-sm text-cyan-600 font-medium">
                 Logged in as: {currentUser.name} ({currentUser.role})
               </p>
             )}
@@ -393,7 +393,7 @@ function Alerts() {
                       <textarea
                         value={alertForm.message}
                         onChange={(e) => setAlertForm(prev => ({ ...prev, message: e.target.value }))}
-                        className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                        className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100"
                         placeholder="Describe the alert condition..."
                         rows={3}
                       />
@@ -404,7 +404,7 @@ function Alerts() {
                         <select
                           value={alertForm.type}
                           onChange={(e) => setAlertForm(prev => ({ ...prev, type: e.target.value }))}
-                          className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                          className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100"
                         >
                           <option value="health">Health</option>
                           <option value="medication">Medication</option>
@@ -417,7 +417,7 @@ function Alerts() {
                         <select
                           value={alertForm.severity}
                           onChange={(e) => setAlertForm(prev => ({ ...prev, severity: e.target.value }))}
-                          className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                          className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100"
                         >
                           <option value="low">Low</option>
                           <option value="medium">Medium</option>
@@ -433,7 +433,7 @@ function Alerts() {
                         <button
                           type="button"
                           onClick={addCondition}
-                          className="text-sm text-indigo-600 hover:text-indigo-700"
+                          className="text-sm text-cyan-600 hover:text-cyan-700"
                         >
                           + Add Condition
                         </button>
@@ -481,7 +481,7 @@ function Alerts() {
 
                     <button
                       onClick={handleCreateMedicalAlert}
-                      className="w-full rounded-2xl bg-indigo-600 px-6 py-3 text-white transition hover:bg-indigo-700"
+                      className="w-full rounded-2xl bg-cyan-600 px-6 py-3 text-white transition hover:bg-cyan-700"
                     >
                       Create Alert
                     </button>
@@ -549,12 +549,12 @@ function Alerts() {
                   onClick={() => toggleOption(option.key)}
                   className={`flex flex-col gap-4 rounded-3xl border p-6 text-left transition ${
                     options[option.key]
-                      ? "border-indigo-500 bg-indigo-50 shadow-sm"
+                      ? "border-cyan-500 bg-cyan-50 shadow-sm"
                       : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${options[option.key] ? "border-indigo-500 bg-indigo-600 text-white" : "border-slate-300 bg-white text-slate-500"}`}>
+                    <span className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${options[option.key] ? "border-cyan-500 bg-cyan-600 text-white" : "border-slate-300 bg-white text-slate-500"}`}>
                       {options[option.key] ? "✓" : ""}
                     </span>
                     <span className="text-sm font-semibold text-slate-900">{option.title}</span>
@@ -711,17 +711,17 @@ function Alerts() {
               )}
 
               {options.callDoctor && (
-                <div className="rounded-3xl border border-indigo-100 bg-indigo-50 p-5">
-                  <p className="text-sm font-semibold text-indigo-900">Primary Doctor</p>
+                <div className="rounded-3xl border border-cyan-100 bg-cyan-50 p-5">
+                  <p className="text-sm font-semibold text-cyan-900">Primary Doctor</p>
                   <div className="mt-3 rounded-2xl bg-white p-4">
                     <p className="font-semibold text-slate-900">{primaryDoctor?.name || "Doctor not found"}</p>
                     <p className="text-sm text-slate-500">{primaryDoctor?.hospital || "Nigehbaan Clinic"}</p>
-                    <p className="mt-1 text-sm font-semibold text-indigo-700">{primaryDoctor?.phone || "No phone available"}</p>
+                    <p className="mt-1 text-sm font-semibold text-cyan-700">{primaryDoctor?.phone || "No phone available"}</p>
                   </div>
                   {primaryDoctor?.phone && (
                     <a
                       href={`tel:${primaryDoctor.phone}`}
-                      className="mt-4 flex items-center justify-center rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700"
+                      className="mt-4 flex items-center justify-center rounded-2xl bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700"
                     >
                       Call Doctor
                     </a>
@@ -743,7 +743,7 @@ function Alerts() {
               <button
                 type="button"
                 onClick={handleSendAlert}
-                className="inline-flex items-center justify-center rounded-3xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
+                className="inline-flex items-center justify-center rounded-3xl bg-cyan-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700"
               >
                 Send Alert
               </button>
@@ -765,7 +765,7 @@ function Alerts() {
                 <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Vitals Snapshot</p>
                 <h2 className="mt-3 text-2xl font-semibold text-slate-900">Real-time overview</h2>
               </div>
-              <div className="rounded-3xl bg-indigo-100 px-4 py-2 text-sm font-semibold text-indigo-700">Updated 2m ago</div>
+              <div className="rounded-3xl bg-cyan-100 px-4 py-2 text-sm font-semibold text-cyan-700">Updated 2m ago</div>
             </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -809,7 +809,7 @@ function Alerts() {
             <h2 className="mt-3 text-2xl font-semibold text-slate-900">{primaryDoctor?.hospital || "Nigehbaan Clinic"}</h2>
             <p className="mt-4 text-sm text-slate-500">{primaryDoctor?.phone || "No phone number available"}</p>
             <div className="mt-6 flex items-center gap-4 rounded-3xl bg-slate-50 p-5">
-              <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-indigo-600 text-xl font-bold text-white">
+              <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-cyan-600 text-xl font-bold text-white">
                 {(primaryDoctor?.name || "D").charAt(0).toUpperCase()}
               </div>
               <div>
@@ -862,7 +862,7 @@ function Alerts() {
             <p className="mt-6 text-sm leading-6 text-slate-500">
               Includes vitals trends, medication adherence and activity summary.
             </p>
-            <button className="mt-8 rounded-3xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700">
+            <button className="mt-8 rounded-3xl bg-cyan-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700">
               Download PDF
             </button>
           </div>

@@ -50,7 +50,7 @@ function DoctorPerforma() {
                 <select
                   value={report.patient}
                   onChange={(e) => setReport({ ...report, patient: e.target.value })}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                 >
                   <option>e.g., Amna Akbar</option>
                 </select>
@@ -63,7 +63,7 @@ function DoctorPerforma() {
                   placeholder="Blood Pressure Analysis"
                   value={report.title}
                   onChange={(e) => setReport({ ...report, title: e.target.value })}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                 />
               </div>
 
@@ -74,13 +74,13 @@ function DoctorPerforma() {
                   value={report.description}
                   onChange={(e) => setReport({ ...report, description: e.target.value })}
                   rows="4"
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                 />
               </div>
 
               <button
                 onClick={handleReportSubmit}
-                className="mt-4 w-full rounded-2xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
+                className="mt-4 w-full rounded-2xl bg-cyan-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700"
               >
                 Save Report
               </button>
@@ -100,7 +100,7 @@ function DoctorPerforma() {
                     placeholder="72"
                     value={health.heartRate}
                     onChange={(e) => setHealth({ ...health, heartRate: e.target.value })}
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                   />
                 </div>
                 <div>
@@ -110,7 +110,7 @@ function DoctorPerforma() {
                     placeholder="118/75"
                     value={health.bp}
                     onChange={(e) => setHealth({ ...health, bp: e.target.value })}
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                   />
                 </div>
               </div>
@@ -124,7 +124,7 @@ function DoctorPerforma() {
                     placeholder="36.5"
                     value={health.temp}
                     onChange={(e) => setHealth({ ...health, temp: e.target.value })}
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                   />
                 </div>
                 <div>
@@ -134,7 +134,7 @@ function DoctorPerforma() {
                     placeholder="98"
                     value={health.o2}
                     onChange={(e) => setHealth({ ...health, o2: e.target.value })}
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                   />
                 </div>
               </div>
@@ -146,7 +146,7 @@ function DoctorPerforma() {
                   placeholder="5500"
                   value={health.steps}
                   onChange={(e) => setHealth({ ...health, steps: e.target.value })}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                 />
               </div>
 
@@ -157,13 +157,13 @@ function DoctorPerforma() {
                   value={health.notes}
                   onChange={(e) => setHealth({ ...health, notes: e.target.value })}
                   rows="2"
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
                 />
               </div>
 
               <button
                 onClick={handleHealthSubmit}
-                className="mt-4 w-full rounded-2xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
+                className="mt-4 w-full rounded-2xl bg-cyan-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700"
               >
                 Save Reading
               </button>

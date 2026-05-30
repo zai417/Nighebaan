@@ -92,7 +92,7 @@ function AskQuestion() {
 
         {/* Header */}
         <div className="mb-6 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-indigo-600">Support</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-600">Support</p>
           <h1 className="mt-2 text-3xl font-bold text-slate-900">Ask a Question</h1>
           <p className="mt-2 text-sm text-slate-500">Submit any question and the admin will answer it directly here.</p>
 
@@ -112,12 +112,12 @@ function AskQuestion() {
         {!showForm ? (
           <button
             onClick={() => { setShowForm(true); setSuccess(""); }}
-            className="mb-6 flex w-full items-center justify-center gap-2 rounded-3xl border-2 border-dashed border-indigo-200 bg-indigo-50 py-5 text-sm font-semibold text-indigo-700 transition hover:bg-indigo-100"
+            className="mb-6 flex w-full items-center justify-center gap-2 rounded-3xl border-2 border-dashed border-cyan-200 bg-cyan-50 py-5 text-sm font-semibold text-cyan-700 transition hover:bg-cyan-100"
           >
             + Ask a New Question
           </button>
         ) : (
-          <div className="mb-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-indigo-200">
+          <div className="mb-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-cyan-200">
             <h2 className="mb-4 font-semibold text-slate-900">Your Question</h2>
             {error && <div className="mb-4 rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700">{error}</div>}
             <div>
@@ -127,14 +127,14 @@ function AskQuestion() {
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 placeholder="Type your question here..."
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-100"
               />
             </div>
             <div className="mt-4 flex gap-3">
               <button
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="rounded-2xl bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:opacity-60"
+                className="rounded-2xl bg-cyan-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-700 disabled:opacity-60"
               >
                 {submitting ? "Submitting..." : "Submit Question"}
               </button>

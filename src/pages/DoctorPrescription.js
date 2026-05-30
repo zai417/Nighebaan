@@ -111,7 +111,7 @@ function DoctorPrescription() {
 
         <div className="mb-6">
           <button onClick={() => navigate("/doctor-performas")}
-            className="mb-4 flex items-center gap-2 text-sm font-semibold text-violet-700 hover:text-violet-800">
+            className="mb-4 flex items-center gap-2 text-sm font-semibold text-cyan-700 hover:text-cyan-800">
             ← Back to Performas
           </button>
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Doctor Tools</p>
@@ -124,7 +124,7 @@ function DoctorPrescription() {
           {[["add","Add Prescription"],["previous","Previous Prescriptions"]].map(([v,label]) => (
             <button key={v} onClick={() => setView(v)}
               className={`rounded-xl px-6 py-2.5 text-sm font-semibold transition ${
-                view === v ? "bg-violet-600 text-white shadow-sm" : "text-slate-600 hover:bg-white"
+                view === v ? "bg-cyan-600 text-white shadow-sm" : "text-slate-600 hover:bg-white"
               }`}>
               {label}
             </button>
@@ -148,7 +148,7 @@ function DoctorPrescription() {
               <div>
                 <label className="text-sm font-medium text-slate-700">Patient *</label>
                 <select value={patientId} onChange={(e) => setPatientId(e.target.value)}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100">
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100">
                   <option value="">-- Select patient --</option>
                   {patients.map((p) => (
                     <option key={p._id || p.id} value={p._id || p.id}>{p.name}</option>
@@ -158,12 +158,12 @@ function DoctorPrescription() {
               <div>
                 <label className="text-sm font-medium text-slate-700">Date</label>
                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100" />
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100" />
               </div>
               <div>
                 <label className="text-sm font-medium text-slate-700">Duration</label>
                 <select value={duration} onChange={(e) => setDuration(e.target.value)}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100">
+                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100">
                   {DURATIONS.map((d) => <option key={d}>{d}</option>)}
                 </select>
               </div>
@@ -174,7 +174,7 @@ function DoctorPrescription() {
               <div className="mb-3 flex items-center justify-between">
                 <label className="text-sm font-semibold text-slate-700">Medicines *</label>
                 <button onClick={addMedRow}
-                  className="flex items-center gap-1.5 rounded-xl bg-violet-50 border border-violet-200 px-3 py-1.5 text-xs font-semibold text-violet-700 hover:bg-violet-100 transition">
+                  className="flex items-center gap-1.5 rounded-xl bg-cyan-50 border border-cyan-200 px-3 py-1.5 text-xs font-semibold text-cyan-700 hover:bg-cyan-100 transition">
                   + Add Medicine
                 </button>
               </div>
@@ -198,18 +198,18 @@ function DoctorPrescription() {
                         <label className="text-xs font-medium text-slate-600">Medicine Name *</label>
                         <input type="text" placeholder="e.g. Metformin" value={med.name}
                           onChange={(e) => updateMed(idx, "name", e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100" />
+                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100" />
                       </div>
                       <div>
                         <label className="text-xs font-medium text-slate-600">Dosage *</label>
                         <input type="text" placeholder="e.g. 500mg" value={med.dosage}
                           onChange={(e) => updateMed(idx, "dosage", e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100" />
+                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100" />
                       </div>
                       <div>
                         <label className="text-xs font-medium text-slate-600">Frequency *</label>
                         <select value={med.frequency} onChange={(e) => updateMed(idx, "frequency", e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100">
+                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100">
                           <option value="">-- Select --</option>
                           {FREQUENCIES.map((f) => <option key={f}>{f}</option>)}
                         </select>
@@ -217,7 +217,7 @@ function DoctorPrescription() {
                       <div>
                         <label className="text-xs font-medium text-slate-600">Route</label>
                         <select value={med.route} onChange={(e) => updateMed(idx, "route", e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100">
+                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100">
                           {ROUTES.map((r) => <option key={r}>{r}</option>)}
                         </select>
                       </div>
@@ -225,7 +225,7 @@ function DoctorPrescription() {
                         <label className="text-xs font-medium text-slate-600">Instructions</label>
                         <input type="text" placeholder="e.g. Take after meals with water"
                           value={med.instructions} onChange={(e) => updateMed(idx, "instructions", e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100" />
+                          className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100" />
                       </div>
                     </div>
                   </div>
@@ -238,24 +238,24 @@ function DoctorPrescription() {
               <label className="text-sm font-medium text-slate-700">Doctor Remarks</label>
               <textarea rows={3} placeholder="Additional notes, follow-up instructions, lifestyle advice..."
                 value={remarks} onChange={(e) => setRemarks(e.target.value)}
-                className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-100" />
+                className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100" />
             </div>
 
             {/* Preview strip */}
             {patientId && medicines[0].name && (
-              <div className="mb-6 rounded-2xl border border-violet-200 bg-violet-50 px-5 py-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-violet-500">Preview</p>
-                <p className="mt-1 text-sm font-semibold text-violet-900">
+              <div className="mb-6 rounded-2xl border border-cyan-200 bg-cyan-50 px-5 py-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-cyan-500">Preview</p>
+                <p className="mt-1 text-sm font-semibold text-cyan-900">
                   {patientName(patientId)} · {medicines.filter(m => m.name).length} medicine{medicines.filter(m=>m.name).length !== 1 ? "s" : ""} · {duration}
                 </p>
-                <p className="text-xs text-violet-700 mt-0.5">
+                <p className="text-xs text-cyan-700 mt-0.5">
                   {medicines.filter(m => m.name).map(m => `${m.name} ${m.dosage}`).join(" · ")}
                 </p>
               </div>
             )}
 
             <button onClick={handleSubmit}
-              className="w-full rounded-2xl bg-violet-600 py-3.5 text-sm font-semibold text-white transition hover:bg-violet-700">
+              className="w-full rounded-2xl bg-cyan-600 py-3.5 text-sm font-semibold text-white transition hover:bg-cyan-700">
               Save Prescription
             </button>
           </div>

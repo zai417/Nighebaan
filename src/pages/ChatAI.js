@@ -40,7 +40,7 @@ function ChatBubble({ msg }) {
     <div className={`flex gap-3 ${isUser ? "flex-row-reverse" : "flex-row"}`}>
       {/* Avatar */}
       <div className={`shrink-0 flex h-9 w-9 items-center justify-center rounded-2xl text-sm font-bold ${
-        isUser ? "bg-teal-600 text-white" : "bg-indigo-100 text-indigo-700"
+        isUser ? "bg-teal-600 text-white" : "bg-cyan-100 text-cyan-700"
       }`}>
         {isUser ? "You" : "AI"}
       </div>
@@ -70,7 +70,7 @@ function ChatBubble({ msg }) {
 function TypingIndicator() {
   return (
     <div className="flex gap-3">
-      <div className="shrink-0 flex h-9 w-9 items-center justify-center rounded-2xl bg-indigo-100 text-sm font-bold text-indigo-700">
+      <div className="shrink-0 flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-100 text-sm font-bold text-cyan-700">
         AI
       </div>
       <div className="flex items-center gap-1.5 rounded-3xl rounded-tl-md bg-white px-5 py-4 ring-1 ring-slate-200">
@@ -198,7 +198,7 @@ function ChatAI() {
               ← Back
             </button>
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-indigo-600 text-white text-sm font-bold">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-600 text-white text-sm font-bold">
                 AI
               </div>
               <div>

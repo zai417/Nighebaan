@@ -255,6 +255,31 @@ export default function BookAppointment() {
   const [payingAppointment, setPayingAppointment] = useState(null);
   const [paymentMsg, setPaymentMsg] = useState("");
 
+  const getProviderLabel = useCallback((appt) => {
+    const providerName = appt.providerName && appt.providerName !== "-" ? appt.providerName : null;
+    if (providerName) return providerName;
+    if (appt.doctorName) return appt.doctorName;
+    if (appt.nurseName) return appt.nurseName;
+
+    const providerId = appt.providerId || appt.doctorId || appt.nurseId;
+    if (providerId && PROVIDER_NAME_MAP[providerId]) return PROVIDER_NAME_MAP[providerId];
+
+    const doctor = doctors.find((d) => (d._id || d.id) === providerId);
+    if (doctor) return doctor.name;
+
+    const nurse = nurses.find((n) => (n._id || n.id) === providerId);
+    if (nurse) return nurse.name;
+
+    if (appt.providerType === "doctor") {
+      return providerId || "Doctor";
+    }
+    if (appt.providerType === "nurse") {
+      return providerId || "Nurse";
+    }
+
+    return providerId || "your provider";
+  }, [doctors, nurses]);
+
   const loadAppointments = useCallback((u) => {
     try {
       const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
@@ -301,7 +326,7 @@ export default function BookAppointment() {
       setMyAppointments([]);
       setNotification("");
     }
-  }, [doctors, nurses]);
+  }, [getProviderLabel]);
 
   useEffect(() => {
     const raw = localStorage.getItem("user");
@@ -335,31 +360,6 @@ export default function BookAppointment() {
     setSearchParams(t ? { tab: t } : {});
     setSubmitted(false);
     setError("");
-  };
-
-  const getProviderLabel = (appt) => {
-    const providerName = appt.providerName && appt.providerName !== "-" ? appt.providerName : null;
-    if (providerName) return providerName;
-    if (appt.doctorName) return appt.doctorName;
-    if (appt.nurseName) return appt.nurseName;
-
-    const providerId = appt.providerId || appt.doctorId || appt.nurseId;
-    if (providerId && PROVIDER_NAME_MAP[providerId]) return PROVIDER_NAME_MAP[providerId];
-
-    const doctor = doctors.find((d) => (d._id || d.id) === providerId);
-    if (doctor) return doctor.name;
-
-    const nurse = nurses.find((n) => (n._id || n.id) === providerId);
-    if (nurse) return nurse.name;
-
-    if (appt.providerType === "doctor") {
-      return providerId || "Doctor";
-    }
-    if (appt.providerType === "nurse") {
-      return providerId || "Nurse";
-    }
-
-    return providerId || "your provider";
   };
 
   const handleSubmit = () => {
@@ -510,9 +510,9 @@ export default function BookAppointment() {
 
             <button
               onClick={() => switchTab("previous")}
-              className="group flex flex-col items-start gap-4 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200 text-left transition hover:ring-indigo-400 hover:shadow-md active:scale-[0.98]"
+              className="group flex flex-col items-start gap-4 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200 text-left transition hover:ring-cyan-400 hover:shadow-md active:scale-[0.98]"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 group-hover:bg-indigo-100 transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-600 group-hover:bg-cyan-100 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                 </svg>
@@ -521,7 +521,7 @@ export default function BookAppointment() {
                 <h2 className="text-xl font-bold text-slate-900">Previous Appointments</h2>
                 <p className="mt-1.5 text-sm text-slate-500">View all your past and upcoming appointment requests and their status.</p>
               </div>
-              <span className="mt-auto inline-flex items-center gap-1.5 rounded-2xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white group-hover:bg-indigo-700 transition">
+              <span className="mt-auto inline-flex items-center gap-1.5 rounded-2xl bg-cyan-600 px-5 py-2.5 text-sm font-semibold text-white group-hover:bg-cyan-700 transition">
                 View History &rarr;
               </span>
             </button>

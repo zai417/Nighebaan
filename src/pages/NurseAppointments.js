@@ -154,7 +154,7 @@ export default function NurseAppointments() {
       <main className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
 
         <button onClick={() => navigate("/nurse-dashboard")}
-          className="mb-6 flex items-center gap-2 text-sm font-semibold text-indigo-700 hover:text-indigo-800">
+          className="mb-6 flex items-center gap-2 text-sm font-semibold text-cyan-700 hover:text-cyan-800">
           ← Back to Dashboard
         </button>
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Nurse Portal</p>
@@ -172,7 +172,7 @@ export default function NurseAppointments() {
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Total Requests</p>
-            <p className="mt-1 text-2xl font-bold text-indigo-700">{appointments.length}</p>
+            <p className="mt-1 text-2xl font-bold text-cyan-700">{appointments.length}</p>
           </div>
         </div>
 
@@ -189,7 +189,7 @@ export default function NurseAppointments() {
           ].map(([v, label]) => (
             <button key={v} onClick={() => setTab(v)}
               className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition ${
-                tab === v ? "bg-indigo-600 text-white shadow-sm" : "text-slate-600 hover:bg-white"
+                tab === v ? "bg-cyan-600 text-white shadow-sm" : "text-slate-600 hover:bg-white"
               }`}>
               {label}
             </button>
@@ -208,7 +208,7 @@ export default function NurseAppointments() {
                 <div key={appt.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div className="flex items-start gap-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-sm font-bold text-indigo-700">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-100 text-sm font-bold text-cyan-700">
                         {appt.patientName?.charAt(0).toUpperCase()}
                       </div>
                       <div>

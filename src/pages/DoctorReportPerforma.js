@@ -95,7 +95,7 @@ function DoctorReportPerforma() {
       <main className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
 
         <div className="mb-6">
-          <button onClick={() => navigate("/doctor-performas")} className="mb-4 flex items-center gap-2 text-sm font-semibold text-indigo-700 hover:text-indigo-800">
+          <button onClick={() => navigate("/doctor-performas")} className="mb-4 flex items-center gap-2 text-sm font-semibold text-cyan-700 hover:text-cyan-800">
             ← Back to Performas
           </button>
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Doctor Performa</p>
@@ -109,7 +109,7 @@ function DoctorReportPerforma() {
               key={v}
               onClick={() => setView(v)}
               className={`rounded-xl px-6 py-2.5 text-sm font-semibold transition ${
-                view === v ? "bg-indigo-600 text-white shadow-sm" : "text-slate-600 hover:bg-white"
+                view === v ? "bg-cyan-600 text-white shadow-sm" : "text-slate-600 hover:bg-white"
               }`}
             >
               {label}
@@ -134,7 +134,7 @@ function DoctorReportPerforma() {
                 <div>
                   <label className="text-sm font-medium text-slate-700">Select Patient *</label>
                   <select name="patientId" value={form.patientId} onChange={handleChange}
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100">
+                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100">
                     <option value="">-- Choose patient --</option>
                     {patients.map((p) => (
                       <option key={p._id || p.id} value={p._id || p.id}>{p.name}</option>
@@ -144,7 +144,7 @@ function DoctorReportPerforma() {
                 <div>
                   <label className="text-sm font-medium text-slate-700">Report Title *</label>
                   <input name="title" type="text" placeholder="e.g. Blood Pressure Analysis" value={form.title} onChange={handleChange}
-                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100" />
+                    className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100" />
                 </div>
               </div>
 

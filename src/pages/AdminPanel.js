@@ -182,7 +182,7 @@ function AdminPanel() {
             <div className="grid gap-4 sm:grid-cols-3">
               {[
                 { label: "Active Doctors",  role: "doctor",  color: "teal"   },
-                { label: "Active Nurses",   role: "nurse",   color: "indigo" },
+                { label: "Active Nurses",   role: "nurse",   color: "cyan" },
                 { label: "Active Patients", role: "patient", color: "emerald" },
               ].map(({ label, role, color }) => (
                 <button

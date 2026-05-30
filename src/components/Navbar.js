@@ -70,8 +70,8 @@ function Navbar() {
   const isActive  = (path) => location.pathname === path;
   const isSupportActive = ["/my-complaints", "/ask-question"].includes(location.pathname);
   const navLink   = "text-sm font-medium transition whitespace-nowrap";
-  const active    = "text-indigo-600 font-semibold";
-  const inactive  = "text-slate-600 hover:text-indigo-600";
+  const active    = "text-cyan-600 font-semibold";
+  const inactive  = "text-slate-600 hover:text-cyan-600";
 
   // ── Reusable Support dropdown (desktop) ────────────────────────────────
   const SupportDropdown = () => (
@@ -89,13 +89,13 @@ function Navbar() {
         <div className="absolute left-0 top-full mt-2 w-44 rounded-2xl bg-white shadow-lg ring-1 ring-slate-200 py-1.5 z-50">
           <Link
             to="/my-complaints"
-            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition"
+            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-600 transition"
           >
             Complaints
           </Link>
           <Link
             to="/ask-question"
-            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition"
+            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-cyan-600 transition"
           >
             Ask a Question
           </Link>
@@ -241,13 +241,13 @@ function Navbar() {
             {user ? (
               <>
                 <div className="flex items-center gap-2 rounded-2xl bg-slate-50 border border-slate-200 px-3 py-1.5">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-bold shrink-0">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-600 text-white text-xs font-bold shrink-0">
                     {user.name?.charAt(0).toUpperCase() || "?"}
                   </div>
                   <span className="text-sm font-medium text-slate-700 max-w-[100px] truncate hidden sm:block">
                     {user.name}
                   </span>
-                  <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700 hidden sm:block">
+                  <span className="rounded-full bg-cyan-100 px-2 py-0.5 text-xs font-semibold text-cyan-700 hidden sm:block">
                     {roleLabel(user.role)}
                   </span>
                 </div>
@@ -260,8 +260,8 @@ function Navbar() {
               </>
             ) : (
               <>
-                <Link to="/login"  className="text-sm font-medium text-slate-700 transition hover:text-indigo-600">Login</Link>
-                <Link to="/signup" className="rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700">Sign Up</Link>
+                <Link to="/login"  className="text-sm font-medium text-slate-700 transition hover:text-cyan-600">Login</Link>
+                <Link to="/signup" className="rounded-2xl bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700">Sign Up</Link>
               </>
             )}
 

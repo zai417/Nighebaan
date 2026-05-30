@@ -13,7 +13,7 @@ const roleLabel = (r) => {
 };
 
 const roleColor = (r) => {
-  if (r === "doctor")    return "bg-indigo-50 text-indigo-700";
+  if (r === "doctor")    return "bg-cyan-50 text-cyan-700";
   if (r === "nurse" || r === "caregiver") return "bg-teal-50 text-teal-700";
   if (r === "admin")     return "bg-amber-50 text-amber-700";
   return "bg-slate-100 text-slate-600";
@@ -69,7 +69,6 @@ export default function AdminRegistrations() {
     }
   };
 
-  const roles = ["all", "user", "doctor", "nurse", "caregiver"];
   const filtered = filter === "all" ? pending : pending.filter((u) => u.role === filter);
 
   return (

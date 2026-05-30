@@ -35,7 +35,6 @@ const MOCK_PRESCRIPTIONS = {
 
 export default function Vitals() {
   const navigate = useNavigate();
-  const [user, setUser]               = useState(null);
   const [latest, setLatest]           = useState(null);
   const [records, setRecords]         = useState([]);
   const [loading, setLoading]         = useState(true);
@@ -51,7 +50,6 @@ export default function Vitals() {
       if (u.role === "doctor") { navigate("/doctor-dashboard"); return; }
       if (u.role === "nurse")  { navigate("/nurse-dashboard");  return; }
       if (u.role === "admin")  { navigate("/admin-panel");      return; }
-      setUser(u);
     } catch { navigate("/login"); return; }
 
     // Load latest vitals
@@ -98,9 +96,6 @@ export default function Vitals() {
       .finally(() => setLoading(false));
   }, [navigate]);
 
-  const fmt = (v, unit = "", fallback = "—") =>
-    v !== undefined && v !== null ? `${v}${unit}` : fallback;
-
   const bpStr = latest?.bloodPressure
     ? `${latest.bloodPressure.systolic}/${latest.bloodPressure.diastolic} mmHg`
     : "—";
@@ -122,7 +117,7 @@ export default function Vitals() {
     },
     {
       label: "Blood Pressure", value: bpStr, unit: "", icon: "🩸",
-      color: "indigo",
+      color: "cyan",
       status: latest?.bloodPressure ? "mmHg" : null,
       abnormal: false,
     },
@@ -144,7 +139,7 @@ export default function Vitals() {
     },
     {
       label: "Blood Glucose", value: latest?.bloodGlucose, unit: " mg/dL", icon: "🍬",
-      color: "violet",
+      color: "cyan",
       status: latest?.bloodGlucose ? "Recorded" : null,
       abnormal: false,
     },
@@ -170,10 +165,9 @@ export default function Vitals() {
 
   const colorMap = {
     rose:    "bg-rose-50 ring-rose-100",
-    indigo:  "bg-indigo-50 ring-indigo-100",
+    cyan:    "bg-cyan-50 ring-cyan-100",
     amber:   "bg-amber-50 ring-amber-100",
     teal:    "bg-teal-50 ring-teal-100",
-    violet:  "bg-violet-50 ring-violet-100",
     sky:     "bg-sky-50 ring-sky-100",
     slate:   "bg-slate-50 ring-slate-200",
     emerald: "bg-emerald-50 ring-emerald-100",
@@ -207,11 +201,11 @@ export default function Vitals() {
           </div>
           <div className="flex gap-3">
             <Link to="/health-history"
-              className="rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 transition hover:ring-indigo-300">
+              className="rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 transition hover:ring-cyan-300">>
               Full History
             </Link>
             <Link to="/dashboard"
-              className="rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700">
+              className="rounded-2xl bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700">
               Dashboard
             </Link>
           </div>
@@ -352,7 +346,7 @@ export default function Vitals() {
                       className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-50 transition"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-600">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                             <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />

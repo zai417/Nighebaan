@@ -42,7 +42,7 @@ function DoctorDashboard() {
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
 
         <div className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-indigo-600">Doctor Portal</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-600">Doctor Portal</p>
           <h1 className="mt-1 text-3xl font-semibold text-slate-900">Welcome back, {doctor.name}</h1>
         </div>
 
@@ -52,12 +52,12 @@ function DoctorDashboard() {
           <div className="space-y-5">
             <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
               <div className="flex flex-col items-center text-center">
-                <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-indigo-600 text-white text-3xl font-bold shadow-lg">
+                <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-cyan-600 text-white text-3xl font-bold shadow-lg">
                   {initial}
                 </div>
                 <h2 className="mt-4 text-xl font-semibold text-slate-900">{doctor.name}</h2>
                 <p className="mt-1 text-sm text-slate-500">{doctor.email}</p>
-                <span className="mt-3 rounded-full bg-indigo-100 px-4 py-1 text-xs font-semibold text-indigo-700">
+                <span className="mt-3 rounded-full bg-cyan-100 px-4 py-1 text-xs font-semibold text-cyan-700">
                   Doctor
                 </span>
               </div>
@@ -94,13 +94,13 @@ function DoctorDashboard() {
             {/* Performas Button */}
             <button
               onClick={() => navigate("/doctor-performas")}
-              className="w-full rounded-3xl bg-indigo-600 p-8 text-left shadow-lg shadow-indigo-100 transition hover:bg-indigo-700 active:scale-[0.99]"
+              className="w-full rounded-3xl bg-green-300 p-8 text-left shadow-lg shadow-cyan-100 transition hover:bg-teal-700 active:scale-[0.99]"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-indigo-200">Medical Forms</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-200">Medical Forms</p>
                   <h2 className="mt-2 text-2xl font-bold text-white">Performas</h2>
-                  <p className="mt-2 text-sm text-indigo-200">
+                  <p className="mt-2 text-sm text-slate-200">
                     Access health monitoring and doctor report performas.
                   </p>
                 </div>
@@ -131,14 +131,15 @@ function DoctorDashboard() {
             {/* Appointment requests */}
             <button
               onClick={() => navigate("/doctor-appointments")}
-              className="relative w-full rounded-3xl bg-white p-5 text-left shadow-sm ring-1 ring-slate-200 transition hover:ring-teal-400"
+
+              className="relative w-full rounded-3xl bg-blue-300 p-5 text-left shadow-sm shadow-white-100 transition hover:bg-cyan-700"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">📅</span>
                   <div>
-                    <p className="text-base font-semibold text-slate-900">Appointment Requests</p>
-                    <p className="text-xs text-slate-500">Review and confirm patient bookings</p>
+                    <p className="text-base font-semibold text-white">Appointment Requests</p>
+                    <p className="text-xs text-white">Review and confirm patient bookings</p>
                   </div>
                 </div>
                 {pendingCount > 0 && (
@@ -153,19 +154,19 @@ function DoctorDashboard() {
             <div className="grid gap-4 sm:grid-cols-2">
               <button
                 onClick={() => navigate("/doctor-prescription")}
-                className="rounded-3xl bg-violet-600 p-5 text-left shadow-sm shadow-violet-100 transition hover:bg-violet-700"
+                className="rounded-3xl bg-yellow-400 p-5 text-left shadow-sm shadow-white-100 transition hover:bg-cyan-700"
               >
                 <span className="text-2xl">💊</span>
-                <p className="mt-3 text-base font-semibold text-white">Write Prescription</p>
-                <p className="mt-1 text-xs text-violet-200">Issue medicines to a patient</p>
+                <p className="mt-3 font-semibold text-white">Write Prescription</p>
+                <p className="mt-1 text-xs text-white">Issue medicines to a patient</p>
               </button>
               <button
                 onClick={() => navigate("/patients")}
-                className="rounded-3xl bg-white p-5 text-left shadow-sm ring-1 ring-slate-200 transition hover:ring-indigo-300"
+                className="rounded-3xl bg-rose-400 p-5 text-left shadow-sm shadow-white-100 transition hover:bg-cyan-700"
               >
                 <span className="text-2xl">👥</span>
-                <p className="mt-3 text-base font-semibold text-slate-900">View Patients</p>
-                <p className="mt-1 text-xs text-slate-500">Browse records and health history</p>
+                <p className="mt-3 text-base font-semibold text-white">View Patients</p>
+                <p className="mt-1 text-xs text-white">Browse records and health history</p>
               </button>
             </div>
           </div>

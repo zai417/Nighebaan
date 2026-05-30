@@ -385,15 +385,15 @@ function Plans() {
                 </p>
               </div>
               <div className="mt-6 grid gap-6 lg:grid-cols-3">
-                <div className="rounded-3xl bg-slate-50 p-6">
+                <div className="rounded-3xl bg-yellow-100 p-6">
                   <h3 className="text-xl font-semibold text-slate-900">Free</h3>
                   <p className="mt-3 text-sm leading-6 text-slate-600">Best for trying Nigehbaan, entering vitals manually, chatting with AI, booking appointments, and using SOS location sharing.</p>
                 </div>
-                <div className="rounded-3xl bg-slate-50 p-6">
+                <div className="rounded-3xl bg-sky-100 p-6">
                   <h3 className="text-xl font-semibold text-slate-900">Standard</h3>
                   <p className="mt-3 text-sm leading-6 text-slate-600">Best for families who need reminders, saved emergency contacts, payment records, and faster support.</p>
                 </div>
-                <div className="rounded-3xl bg-slate-50 p-6">
+                <div className="rounded-3xl bg-rose-100 p-6">
                   <h3 className="text-xl font-semibold text-slate-900">Premium</h3>
                   <p className="mt-3 text-sm leading-6 text-slate-600">Best for patients who need emergency escalation, doctor and nurse coordination, reports, and premium telehealth support.</p>
                 </div>
@@ -411,7 +411,7 @@ function Plans() {
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {addOns.map((item) => (
-              <div key={item.id} className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+              <div key={item.id} className="rounded-3xl border border-slate-200 bg-green-100 p-6">
                 <h3 className="text-xl font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-3 text-slate-600">{item.description}</p>
               </div>

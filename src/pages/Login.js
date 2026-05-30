@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../services/api";
 
@@ -118,21 +118,21 @@ function Login() {
             <button
               onClick={handleLogin}
               disabled={loading}
-              className="mt-4 w-full rounded-2xl bg-indigo-600 px-6 py-3 text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-indigo-300"
+              className="mt-4 w-full rounded-2xl bg-cyan-600 px-6 py-3 text-white transition hover:bg-cyan-700 disabled:cursor-not-allowed disabled:bg-cyan-300"
             >
               {loading ? "Signing in..." : "Sign In"}
             </button>
           </div>
 
           <p className="mt-6 text-center text-sm text-slate-500">
-            Donâ€™t have an account? <Link to="/signup" className="font-semibold text-indigo-600 hover:text-indigo-700">Register</Link>
+            Don't have an account? <Link to="/signup" className="font-semibold text-cyan-600 hover:text-cyan-700">Register</Link>
           </p>
           <p className="mt-2 text-center text-sm text-slate-500">
-            <Link to="/forgot-password" className="font-semibold text-indigo-600 hover:text-indigo-700">Forgot Password?</Link>
+            <Link to="/forgot-password" className="font-semibold text-cyan-600 hover:text-cyan-700">Forgot Password?</Link>
           </p>
         </div>
 
-        <div className="flex flex-col justify-between rounded-3xl bg-indigo-700 text-white p-10 shadow-xl">
+        <div className="flex flex-col justify-between rounded-3xl bg-cyan-700 text-white p-10 shadow-xl">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white">
               Modern elder care
@@ -143,11 +143,11 @@ function Login() {
 
           <div className="mt-8 grid gap-4">
             <div className="rounded-3xl bg-white/10 p-5 backdrop-blur-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-indigo-200">Real-time vitals</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-cyan-200">Real-time vitals</p>
               <p className="mt-3 text-lg font-semibold">Monitor heart rate, blood pressure, and oxygen levels.</p>
             </div>
             <div className="rounded-3xl bg-white/10 p-5 backdrop-blur-xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-indigo-200">Medication reminders</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-cyan-200">Medication reminders</p>
               <p className="mt-3 text-lg font-semibold">Stay on schedule with smart alerts.</p>
             </div>
           </div>

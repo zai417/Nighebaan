@@ -31,9 +31,9 @@ function DoctorPerformas() {
       title: "Doctor Report Performa",
       description: "Write clinical reports with diagnosis, findings and follow-up recommendations for individual patients.",
       icon: "📝",
-      color: "bg-indigo-600",
-      hoverColor: "hover:bg-indigo-700",
-      shadowColor: "shadow-indigo-100",
+      color: "bg-cyan-600",
+      hoverColor: "hover:bg-cyan-700",
+      shadowColor: "shadow-cyan-100",
       path: "/doctor-report-performa",
       tags: ["Diagnosis", "Findings", "Recommendations"],
     },
@@ -41,9 +41,9 @@ function DoctorPerformas() {
       title: "Write Prescription",
       description: "Issue prescriptions with full medicine details — dosage, frequency, route and instructions for each drug.",
       icon: "💊",
-      color: "bg-violet-600",
-      hoverColor: "hover:bg-violet-700",
-      shadowColor: "shadow-violet-100",
+      color: "bg-cyan-600",
+      hoverColor: "hover:bg-cyan-700",
+      shadowColor: "shadow-cyan-100",
       path: "/doctor-prescription",
       tags: ["Medicines", "Dosage", "Frequency"],
     },
@@ -57,7 +57,7 @@ function DoctorPerformas() {
         <div className="mb-8">
           <button
             onClick={() => navigate("/doctor-dashboard")}
-            className="mb-4 flex items-center gap-2 text-sm font-semibold text-indigo-700 hover:text-indigo-800"
+            className="mb-4 flex items-center gap-2 text-sm font-semibold text-cyan-700 hover:text-cyan-800"
           >
             ← Back to Dashboard
           </button>
