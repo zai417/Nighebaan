@@ -16,7 +16,9 @@ const chatRoutes = require("./routes/chatRoutes");
 
 const app = express();
 const server = http.createServer(app);
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
+server.keepAliveTimeout = 120000; // 120 seconds
+server.headersTimeout = 125000; // slightly higher than keepAliveTimeout
 const allowedOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:3000,http://localhost:3001,http://localhost:3002")
   .split(",")
   .map((origin) => origin.trim())
