@@ -1,0 +1,47 @@
+services:
+  # Backend Service
+  - type: web
+    name: fyp-backend
+    env: node
+    plan: free
+    runtime: node-18
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        fromDatabase:
+          name: fyp-mongo
+          property: connectionString
+      - key: CLIENT_ORIGIN
+        value: https://your-frontend-url.onrender.com,https://your-domain.com
+      - key: JWT_SECRET
+        scope: run
+        isStatic: false
+      - key: OPENAI_API_KEY
+        scope: run
+        isStatic: false
+
+  # Frontend Service
+  - type: static_site
+    name: fyp-frontend
+    buildCommand: npm run build
+    staticPublishPath: ./build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://your-backend-url.onrender.com/api
+      - key: REACT_APP_SOCKET_URL
+        value: https://your-backend-url.onrender.com
+
+  # MongoDB Database
+  - type: pserv
+    name: fyp-mongo
+    plan: free
+    ipAllowList: []
+    startCommand: |
+      openssl rand -base64 32 > /data/replica-set-key
+      chmod 400 /data/replica-set-key
+      mongod --replSet rs0 --keyFile /data/replica-set-key --bind_ip_all

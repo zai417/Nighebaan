@@ -138,8 +138,8 @@ const startServer = async () => {
 
   if (dbConnected || process.env.NODE_ENV === "development") {
     if (dbConnected) await removeDuplicateUsers();
-    server.listen(PORT, () => {
-      console.log(`\n✓ Server is running on http://localhost:${PORT}`);
+    server.listen(PORT, "0.0.0.0", () => {
+      console.log(`\n✓ Server is running on port ${PORT}`);
       console.log(`✓ API base URL: http://localhost:${PORT}/api`);
       console.log(`✓ Health check: http://localhost:${PORT}/api/health-check`);
       console.log(`✓ Socket.IO is running`);
@@ -153,6 +153,23 @@ const startServer = async () => {
     process.exit(1);
   }
 };
+
+// Graceful shutdown handlers for Render.com
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received. Shutting down gracefully...");
+  server.close(() => {
+    console.log("Server closed");
+    process.exit(0);
+  });
+});
+
+process.on("SIGINT", () => {
+  console.log("SIGINT received. Shutting down gracefully...");
+  server.close(() => {
+    console.log("Server closed");
+    process.exit(0);
+  });
+});
 
 startServer();
 
